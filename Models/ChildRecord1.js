@@ -1,0 +1,52 @@
+const mongoose = require('mongoose');
+
+const childRecordSchema = new mongoose.Schema({
+    'اسم و لقب الأم:': String,
+    'المستوى التعليمي للأم:': String,
+    'مهنة الأم :': String,
+    'اسم و لقب الأب:': String,
+    'المستوى التعليمي للأب:': String,
+    'مهنة الأب :': String,
+    'الهاتف: ': String,
+    'اسم ولقب الطفل:': String,
+    'تاريخ ميلاد الطفل :': String,
+    'الرتبة في العائلة:': Number,
+    'عدد الإخوة والأخوات :': Number,
+    'المستوى الدراسي:': String,
+    'المعدل:': String,
+    ' رسوب في الصف: ': String,
+    'إذا كان نعم، عدد المرات :': Number,
+    'المستويات:': String,
+    ' وجود مرض عائلي: ': String,
+    ' وجود مرض الصرع في العائلة:': String,
+    ' الحمل متابع بشكل جيد: ': String,
+    'مبكر:': String,
+    'المدة :': String,
+    'مشاكل حديثي الولادة:': String,
+    'القرابة: ': String,
+    'ضعف ادراكي:': String,
+    'اضطرابات سلوكية: ': String,
+    'تأخر في النطق: ': String,
+    'وجود اضطرابات تعلم عند الأشقاء: ': String,
+    'وجود اضطرابات تعلم في العائلة: ': String,
+    'إذا كانت الإجابة نعم ، درجة العلاقة:': String,
+    'العدد:': String,
+    'عمر اكتشاف اضطراب التعلم :': String,
+    'نوع اضطراب التعلم:': String,
+    'اضطرابات الذاكرة: ': String,
+    'اضطرابات النوم: ': String,
+    'إذا كانت الإجابة نعم ، نوع الاضطرابات:': String,
+    'حالة المريض:': {
+        'متعاون:': String,
+        'مضطرب: ': String,
+        'نقص في الحركة: ': String,
+        'اضطرابات في المشي: ': String,
+        'اضطرابات حسية: ': String,
+        'اضطرابات أخرى:': String,
+    },
+    'العلاج الحالي:': String,
+});
+
+const ChildRecord = mongoose.model('ChildRecord', childRecordSchema);
+
+module.exports = ChildRecord;
