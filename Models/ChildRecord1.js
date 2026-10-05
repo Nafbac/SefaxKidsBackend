@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
 const childRecordSchema = new mongoose.Schema({
+    userId: String,
+    specificId: String,
     'اسم و لقب الأم:': String,
     'المستوى التعليمي للأم:': String,
     'مهنة الأم :': String,
@@ -45,7 +47,7 @@ const childRecordSchema = new mongoose.Schema({
         'اضطرابات أخرى:': String,
     },
     'العلاج الحالي:': String,
-});
+}, { strict: false });
 
 const ChildRecord = mongoose.model('ChildRecord', childRecordSchema);
 

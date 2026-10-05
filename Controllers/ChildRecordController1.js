@@ -70,3 +70,18 @@ exports.createChildRecord = async (req, res) => {
         res.status(500).json({ message: "Erreur lors de la création de la fiche enfant" });
     }
 };
+
+// Contrôleur pour rechercher une fiche enfant par son specificId (pour les soignants)
+exports.lookupBySpecificId = async (req, res) => {
+    try {
+        const specificId = req.params.specificId;
+        const childRecord = await ChildRecord.findOne({ specificId: specificId });
+        if (!childRecord) {
+            return res.status(404).json({ message: 'Fiche enfant non trouvée avec ce specificId' });
+        }
+        res.status(200).json(childRecord);
+    } catch (error) {
+        console.error("Erreur lors de la recherche par specificId :", error);
+        res.status(500).json({ message: "Erreur lors de la recherche par specificId" });
+    }
+};

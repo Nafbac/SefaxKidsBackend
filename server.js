@@ -4,6 +4,7 @@ const UsersRoutes = require('./Routes/userRoute');
 const cors = require('cors');
 const errorHandler = require('./utils/errorHandler');
 const ChildRecordRouter = require('./Routes/ChildRecordRoute');
+const ScoreRouter = require('./Routes/ScoreRoute');
 
 const connectDB = require('./Config/dbConfig');
 const app = express();
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 });
 app.use('/', UsersRoutes);
 app.use('/', ChildRecordRouter);
+app.use('/scores', ScoreRouter);
 
 const PORT = 5000 ;
 app.listen(PORT, () => {

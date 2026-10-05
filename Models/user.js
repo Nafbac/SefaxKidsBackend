@@ -18,6 +18,10 @@ const userSchema = mongoose.Schema({
   otp: {
     type: Number,
   },
+  role: {
+    type: Number,
+    default: 1, // 1 for simple user, 2 for doctor
+  },
   otpExpire: {
     type: Date,
   }
