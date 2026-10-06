@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const UsersRoutes = require('./Routes/userRoute');
@@ -8,7 +9,6 @@ const ScoreRouter = require('./Routes/ScoreRoute');
 
 const connectDB = require('./Config/dbConfig');
 const app = express();
-require("dotenv").config();
 const corsOptions = {
     origin: '*',
     optionsSuccessStatus: 200
@@ -26,7 +26,8 @@ app.use('/', UsersRoutes);
 app.use('/', ChildRecordRouter);
 app.use('/scores', ScoreRouter);
 
-const PORT = 5000 ;
+//const PORT = 5000 ;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Serveur démarré sur le port ${PORT}`);
 });
